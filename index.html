@@ -1,281 +1,110 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة التوظيف الإلكترونية</title>
+    <title>استمارة التوظيف - مدرسة براعم الظاهرة الخاصة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #1a4f7c; /* أزرق ملكي فخم للمدارس */
-            --accent-color: #d4af37; /* لمسة ذهبية ملكية */
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            --card-bg: #ffffff;
-            --text-main: #2d3748;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-gradient);
-            min-height: 100vh;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-main);
-        }
-
-        .form-card {
-            background: var(--card-bg);
-            width: 100%;
-            max-width: 600px;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-        }
-
-        .header-container {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .school-logo {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            padding: 5px;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .school-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 50%;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            margin: 0 0 8px 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            color: #718096;
-            font-size: 14px;
-            margin: 0;
-        }
-
-        .form-group {
-            margin-bottom: 22px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #4a5568;
-            font-size: 14px;
-        }
-
-        input[type="text"],
-        input[type="tel"],
-        select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 15px;
-            background-color: #f8fafc;
-            transition: all 0.3s ease;
-        }
-
-        input:focus, select:focus {
-            border-color: var(--primary-color);
-            background-color: #fff;
-            box-shadow: 0 0 0 3px rgba(26, 79, 124, 0.15);
-            outline: none;
-        }
-
-        .file-upload-box {
-            border: 2px dashed #cbd5e1;
-            padding: 25px;
-            border-radius: 8px;
-            background: #f8fafc;
-            text-align: center;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .file-upload-box:hover {
-            border-color: var(--primary-color);
-            background: #f1f5f9;
-        }
-
-        .file-upload-box input[type="file"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .upload-icon {
-            font-size: 28px;
-            color: var(--primary-color);
-            margin-bottom: 8px;
-        }
-
-        .upload-text {
-            font-size: 14px;
-            color: #64748b;
-        }
-
-        .submit-button {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #133b5c 100%);
-            color: white;
-            border: none;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(26, 79, 124, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(26, 79, 124, 0.3);
-        }
-
-        .footer {
-            text-align: center;
-            font-size: 11px;
-            color: #a0aec0;
-            margin-top: 30px;
-        }
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; direction: rtl; }
+        .form-container { max-width: 600px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .logo-container { text-align: center; margin-bottom: 30px; }
+        .logo-container img { max-width: 150px; height: auto; }
+        .school-title { text-align: center; color: #0f172a; font-weight: bold; margin-bottom: 25px; font-size: 22px; }
+        .form-group { margin-bottom: 24px; text-align: right; }
+        .form-label { font-weight: 600; color: #334155; margin-bottom: 8px; font-size: 15px; }
+        .form-control, .form-select { padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 16px; background-color: #f8fafc; transition: all 0.3s; width: 100%; box-sizing: border-box; }
+        .form-control:focus, .form-select:focus { background-color: #fff; border-color: #1d4ed8; box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1); outline: none; }
+        .upload-box { border: 2px dashed #cbd5e1; padding: 35px; border-radius: 10px; background: #f8fafc; text-align: center; cursor: pointer; position: relative; transition: border-color 0.3s; }
+        .upload-box:hover { border-color: #1d4ed8; }
+        .btn-submit { background-color: #1e3a8a; color: #fff; padding: 14px; border-radius: 10px; font-size: 18px; font-weight: bold; width: 100%; border: none; transition: background 0.3s; cursor: pointer; margin-top: 10px; }
+        .btn-submit:hover { background-color: #172554; }
     </style>
 </head>
 <body>
 
-<div class="form-card">
-    <div class="header-container">
-        <!-- لوجو المدرسة الافتراضي (تقدر تبدله بصورة لوجو مدرستك الحقيقي) -->
-        <div class="school-logo">
-            <img src="logo.png" alt="Al Fawz International School Logo" style="width: 100%; height: 100%; object-fit: contain;">
-        </div>
-        <h2>بوابة تقديم السيرة الذاتية</h2>
-        <p class="subtitle">مدرسة الفوز العالمية - طلب الانضمام للكادر التعليمي والإداري</p>
-               
-    </div>
-
-    <!-- تم ربط الإيميل بنجاح هنا -->
-   <form action="https://formsubmit.co/info.alfawzoman@gmail.com" method="POST" enctype="multipart/form-data">
+<div class="container px-3">
+    <div class="form-container">
         
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="طلب توظيف جديد بمدرستنا">
-
-        <!-- الاسم -->
-        <div class="form-group">
-            <label>الاسم بالكامل (رباعي) *</label>
-            <input type="text" name="الاسم" required placeholder="أدخل اسمك كاملاً">
+        <!-- لوجو المدرسة وعنوان الاستمارة -->
+        <div class="logo-container">
+            <span style="font-size: 60px;">🏫</span>
+            <h1 class="school-title">استمارة طلب انضمام لهيئة التدريس<br><span style="font-size: 16px; color: #64748b; font-weight: normal;">مدرسة براعم الظاهرة الخاصة - سلطنة عمان</span></h1>
         </div>
 
-        <!-- التخصص -->
-        <div class="form-group">
-            <label>التخصص الوظيفي المستهدف *</label>
-            <select name="التخصص" required>
-                <option value="" disabled selected>اختر التخصص المطلوب...</option>
-                <option value="معلم لغة عربية">معلم لغة عربية</option>
-                <option value="معلم تربية اسلامية">معلم تربية اسلامية</option>
-                <option value="معلم لغة فرنسية">معلم لغة فرنسية</option>
-                <option value="معلم رياضيات">معلم رياضيات</option>
-                <option value="معلم لغة إنجليزية">معلم لغة إنجليزية</option>
-                <option value="معلم علوم / ">معلم علوم / ساينس</option>
-                <option value="معلم مواد اجتماعية">معلم مواد اجتماعية</option>
-                <option value="معلم حاسب الي">معلم حاسب الي</option>
-
-                <option value=معلم تربية بدنية">معلم تربية بدنية></option>
-                   <option value="معلم لغة المانية">معلم لغة المانية</option>
-                   <option value="اخصائي مكتبات">اخصائي مكتبات</option>
-                   <option value="اخصائي اجتماعي">اخصائي اجتماعي</option>
-                   <option value="معلم تربية فنية">معلم تربية فنية</option>
-                <option value="وظائف إدارية">وظائف إدارية ومعاونة</option>
-            </select>
-        </div>
-
-        <!-- الهاتف -->
-        <div class="form-group">
-            <label>رقم الهاتف (الواتساب) *</label>
-            <input type="tel" name="رقم الهاتف" required placeholder="01xxxxxxxxx">
-        </div>
-
-</div>
-</div>
-        <!-- سنوات الخبرة -->
-        <div class="form-group">
-            <label>عدد سنوات الخبرة *</label>
-            <select name="الخبرة" required>
-                <option value="" disabled selected>اختر سنوات الخبرة...</option>
-                <option value="حديث تخرج">حديث تخرج</option>
-                <option value="من 1 إلى 3 سنوات">من 1 إلى 3 سنوات</option>
-                <option value="من 3 إلى 5 سنوات">من 3 إلى 5 سنوات</option>
-                <option value="أكثر من 5 سنوات">أكثر من 5 سنوات</option>
-            </select>
-        </div>
-
-        <!-- رفع الـ CV الحقيقي -->
-        <div class="form-group">
-            <label>السيرة الذاتية (صيغة PDF فقط) *</label>
-            <div class="file-upload-box">
-                <div class="upload-icon">📁</div>
-                <div class="upload-text" id="file-label">اضغط هنا لرفع الـ CV أو اسحب الملف</div>
-                <input type="file" name="السيرة الذاتية" accept=".pdf" required id="cv-field">
+        <!-- بداية الاستمارة وكود الإرسال الشغال -->
+        <form action="https://formsubmit.co/info.alfawzoman@gmail.com" method="POST" enctype="multipart/form-data">
+            
+            <!-- الاسم بالكامل -->
+            <div class="form-group">
+                <label class="form-label">الاسم بالكامل (رباعي) <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="الاسم" placeholder="أدخل اسمك كاملاً" required style="direction: rtl; text-align: right;">
             </div>
-        </div>
 
-        <!-- زر الإرسال -->
-        <button type="submit" class="submit-button">إرسال الطلب رسمياً</button>
-    </form>
+            <!-- التخصص الوظيفي المستهدف (بعد التحديث والتنسيق) -->
+            <div class="form-group">
+                <label class="form-label">التخصص الوظيفي المستهدف <span class="text-danger">*</span></label>
+                <select class="form-select" name="التخصص" required style="direction: rtl; text-align: right;">
+                    <option value="" selected disabled>اختر التخصص المطلوب...</option>
+                    <option value="لغة عربية">لغة عربية</option>
+                    <option value="تربية إسلامية">تربية إسلامية</option>
+                    <option value="لغة إنجليزية">لغة إنجليزية</option>
+                    <option value="لغة فرنسية">لغة فرنسية</option>
+                    <option value="لغة ألمانية">لغة ألمانية</option>
+                    <option value="رياضيات">رياضيات</option>
+                    <option value="علوم">علوم</option>
+                    <option value="دراسات اجتماعية">دراسات اجتماعية</option>
+                    <option value="تكنولوجيا معلومات">تكنولوجيا معلومات</option>
+                    <option value="رياض أطفال">رياض أطفال</option>
+                    <option value="تربية فنية">تربية فنية</option>
+                    <option value="فنون تشكيلية">فنون تشكيلية</option>
+                    <option value="موسيقى">موسيقى</option>
+                    <option value="وثائق ومكتبات">وثائق ومكتبات</option>
+                    <option value="أخصائي اجتماعي/ نفسي">أخصائي اجتماعي/ نفسي</option>
+                </select>
+            </div>
 
-    <div class="footer">
-        جميع الحقوق محفوظة للمؤسسة التعليمية © 2026
+            <!-- رقم الهاتف -->
+            <div class="form-group">
+                <label class="form-label">رقم الهاتف (الواتساب) <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" name="رقم الهاتف" placeholder="01xxxxxxxxx" required style="direction: ltr; text-align: left;">
+            </div>
+
+            <!-- خانة البريد الإلكتروني -->
+            <div class="form-group">
+                <label for="user_email" class="form-label">البريد الإلكتروني <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="user_email" name="البريد الإلكتروني" placeholder="example@email.com" required style="direction: ltr; text-align: left;">
+            </div>
+
+            <!-- عدد سنوات الخبرة -->
+            <div class="form-group">
+                <label class="form-label">عدد سنوات الخبرة <span class="text-danger">*</span></label>
+                <select class="form-select" name="سنوات الخبرة" required style="direction: rtl; text-align: right;">
+                    <option value="" selected disabled>اختر سنوات الخبرة...</option>
+                    <option value="بدون خبرة">بدون خبرة</option>
+                    <option value="من 1 إلى 3 سنوات">من 1 إلى 3 سنوات</option>
+                    <option value="من 3 إلى 5 سنوات">من 3 إلى 5 سنوات</option>
+                    <option value="أكثر من 5 سنوات">أكثر من 5 سنوات</option>
+                </select>
+            </div>
+
+            <!-- رفع السيرة الذاتية CV -->
+            <div class="form-group">
+                <label class="form-label">السيرة الذاتية (صيغة PDF فقط) <span class="text-danger">*</span></label>
+                <div class="upload-box">
+                    <span style="font-size: 40px; display: block; margin-bottom: 10px;">📁</span>
+                    <p style="margin: 0; color: #64748b; font-size: 15px; font-weight: 500;">اضغط هنا لرفع الـ CV أو اسحب الملف</p>
+                    <input type="file" name="السيرة الذاتية" accept=".pdf" required style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                </div>
+            </div>
+
+            <!-- زر إرسال الطلب  -->
+            <button type="submit" class="btn-submit">إرسال الطلب </button>
+            
+        </form>
     </div>
 </div>
-
-<script>
-    document.getElementById('cv-field').addEventListener('change', function(e) {
-        var fileName = e.target.files[0].name;
-        document.getElementById('file-label').innerText = "تم اختيار: " + fileName;
-        document.getElementById('file-label').style.color = "#1a4f7c";
-        document.getElementById('file-label').style.fontWeight = "bold";
-    });
-</script>
 
 </body>
 </html>
